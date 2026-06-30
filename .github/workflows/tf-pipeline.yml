@@ -3,10 +3,10 @@ name: "Terraform CI/CD Pipeline"
 on:
   pull_request:
     branches:
-      - main
+      - master
   push:
     branches:
-      - main
+      - master
 
 permissions:
   id-token: write # Required for OIDC authentication
@@ -80,5 +80,5 @@ jobs:
 
       # 7. Apply the EXACT plan generated if merged into main
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve tfplan
