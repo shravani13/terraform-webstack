@@ -11,7 +11,7 @@ module "network" {
 module "web_app" {
   source            = "./modules/web_app"
   environment       = "prod"
-  instance_type     = "t3.small"
+  instance_type     = "t3.micro"
   ami_id            = "ami-08f44e8eca9095668"
   private_cidr      = "10.0.2.0/24"
   private_subnet_id = module.network.private_subnet
